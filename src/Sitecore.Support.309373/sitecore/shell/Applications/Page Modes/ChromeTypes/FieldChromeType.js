@@ -882,9 +882,14 @@
                             : linebreakTimesParamter;
                         linebreakTimes++;
                         this.parameters[linebreakTimesParamterName] = linebreakTimes;
-                        if (linebreakTimes > 1) {
+						//sitecore.support.309373
+						/*if (linebreakTimes > 1) {
                             return;
-                        }
+                        }*/
+						if (linebreakTimes > 1 && this.fieldType != "multi-line text") {
+							return;
+					    }
+						//end of sitecore.support.309373
                     }
 
                     this._insertLineBreak();
