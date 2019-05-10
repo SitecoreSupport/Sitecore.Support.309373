@@ -103,7 +103,9 @@
                         this.onSelectionChanged(event);
                     }.bind(this));
             }
-            if (!this.preventLineBreak()) {
+			
+			//Sitecore.Support.309373
+            if (!this.preventLineBreak() && this.fieldType !== "multi-line text") {
                 Sitecore.PageModes.InlineEditingUtil.processNewLineBreaks(this.chrome.element[0]);
             }
         },
